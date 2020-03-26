@@ -27,3 +27,14 @@ line 125 "chain check" : correct the if !empty chain who wasn't working
 
 -------------------------------------------------------
 
+Aliss - 26/03/2020 - fix 3 
+
+applaying the flowing of the fix. 
+
+IT'S WORKING !!!! 
+
+recreating the table and fixing the tag to match the information. 
+
+thank to Lartak from Open Classroom 
+
+-------------------------------------------------------

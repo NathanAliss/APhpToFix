@@ -38,7 +38,7 @@ $message = '';
 $nomImage = '';
 $checkUp = FALSE;
 $imgSize='';
-$req=$bdd->prepare("INSERT INTO article(`titre`, `dPost`, `content`, `img_name`, `img_size`,`commentaire`)VALUES (:titre,:dPost,:content,:imgN,:imgS,:commentaire)");
+$req=$bdd->prepare("INSERT INTO article(`titre`, `dPost`, `content`, `imgN`, `imgS`,`commentaire`)VALUES (:titre,:dPost,:content,:imgN,:imgS,:commentaire)");
 $tab='';
 
 /************************************************************
