@@ -7,10 +7,17 @@
 
 <?php 
 
-include "connexion.php"
+include "connexion.php";
+include "generationArticle.php";
     
 //variable
     
+
+    
+    
+//code
+    
+
 
 ?>
 

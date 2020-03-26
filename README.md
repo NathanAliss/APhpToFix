@@ -1,20 +1,22 @@
 # APhpToFix
-some PhP work who need to by fix cause they didnt work and the MySQL isn't my best skill
-
-the folder "test" is may missing. 
-
-feel free to update the read-me below the line for explain your change
+A project of backoffice for a school project. 
+it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
-Aliss - 26/03/2020 - fix 1
+Aliss - 26/03/2020 - Update 2
 
-applaying fix suggested from the forum "Open Classroom" and "developpez.com"
+Adding the generation systeme base and display system base
 
-no change on the problem but may help to fix.
+-------------------------------------------------------
+Aliss - 26/03/2020 - fix 3 
 
-line 41 "prepare" : replace the quote by some backstick
+applaying the flowing of the fix. 
 
-ligne 17 "coment error" : try to integrate but the function stop all the execution
+IT'S WORKING !!!! 
+
+recreating the table and fixing the tag to match the information. 
+
+thank to Lartak from Open Classroom 
 
 -------------------------------------------------------
 Aliss - 26/03/2020 - fix 2
@@ -26,15 +28,14 @@ no change on the problem but may help to fix.
 line 125 "chain check" : correct the if !empty chain who wasn't working 
 
 -------------------------------------------------------
+Aliss - 26/03/2020 - fix 1
 
-Aliss - 26/03/2020 - fix 3 
+applaying fix suggested from the forum "Open Classroom" and "developpez.com"
 
-applaying the flowing of the fix. 
+no change on the problem but may help to fix.
 
-IT'S WORKING !!!! 
+line 41 "prepare" : replace the quote by some backstick
 
-recreating the table and fixing the tag to match the information. 
-
-thank to Lartak from Open Classroom 
+ligne 17 "coment error" : try to integrate but the function stop all the execution
 
 -------------------------------------------------------

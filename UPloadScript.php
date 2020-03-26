@@ -104,14 +104,14 @@ if(!empty($_POST))
     // Sinon on affiche une erreur pour le champ vide
     $message = 'Veuillez remplir le formulaire svp !';
   }
-   //check un peu bourin de si les autre champ son plein
+   //check si les autre champ sont remplie
     if(!empty($_POST["titre"])&&!empty($_POST["dPost"])&&!empty($_POST["text"])&&$checkUp==TRUE){
        $imgSize=filesize($_FILES['fichier']['tmp_name']);
         
         //on met dans un tab pour execute
         $tab= array("titre"=>$_POST["titre"],"dPost"=>$_POST["dPost"],"content"=>$_POST["text"],"imgN"=>$nomImage,"imgS"=>$imgSize); 
        
-        //on execute le bazar
+        //on execute la requette
         
        $req->execute($tab);
         echo ("req donnetest");
@@ -120,12 +120,12 @@ if(!empty($_POST))
     }
 }
 
-//controle sa BOUGE a la fin
+//controle | SA BOUGE A LA FIN
 
 echo ("<br><hr><br>target : ".TARGET."<br> taille max :".MAX_SIZE."<br> max-width : ".WIDTH_MAX."<br> max-hight : ".HEIGHT_MAX."<br> extention : $extension <br> message : $message <br> nom : $nomImage<br> check : $checkUp <br><hr><br>");
 
 
-//USELLESS
+//controle | SA BOUGE A LA FIN AUSSI
 foreach ($tab as $key => $value){
     echo ("$key : $value <br>"); 
 }
