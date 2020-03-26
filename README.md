@@ -9,6 +9,18 @@ it's developped in Php, MySQL and HTML/CSS
 creating the base object system. 
 
 need to be add : 
+– integration in the flow
+–test it
+
+need to be Think
+– how integrate the value in the object
+
+-------------------------------------------------------
+*[Aliss - 26/03/2020 - Update 2.0.1]*
+
+creating the base object system. 
+
+need to be add : 
 – article generation model 
 
 need to be Think
