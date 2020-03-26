@@ -5,7 +5,7 @@ $user = 'root';
 $password = 'root';
 
 try {
-    $dbh = new PDO($dsn, $user, $password);
+    $bdd = new PDO($dsn, $user, $password);
     echo "<br><hr><br>accès bdd ok<br><hr><br>";
 } catch (PDOException $e) {
     echo 'Connexion échouée : ' . $e->getMessage();

@@ -1,23 +1,6 @@
 <?php
 
-/* Connexion à une base MySQL avec l'invocation de pilote */
-$dsn = 'mysql:dbname=bddraynald;host=localhost';
-$user = 'root';
-$password = 'root';
-
-try {
-    $bdd= new PDO($dsn, $user, $password);
-    echo "<br><hr><br>accès bdd ok<br><hr><br>";
-   
-
-} catch (PDOException $e) {
-    echo 'Connexion échouée : ' . $e->getMessage();
-}
-
- /* a integré pour un retour mais pas trouver comment
-(https://www.php.net/manual/fr/pdo.setattribute.php)
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-*/
+include "connexion.php";
 
 //prepare de la requette
 
@@ -38,7 +21,7 @@ $message = '';
 $nomImage = '';
 $checkUp = FALSE;
 $imgSize='';
-$req=$bdd->prepare("INSERT INTO article(`titre`, `dPost`, `content`, `imgN`, `imgS`,`commentaire`)VALUES (:titre,:dPost,:content,:imgN,:imgS,:commentaire)");
+$req=$bdd->prepare("INSERT INTO article(`titre`, `dPost`, `content`, `imgN`, `imgS`)VALUES (:titre,:dPost,:content,:imgN,:imgS)");
 $tab='';
 
 /************************************************************
@@ -122,11 +105,11 @@ if(!empty($_POST))
     $message = 'Veuillez remplir le formulaire svp !';
   }
    //check un peu bourin de si les autre champ son plein
-    if(!empty($_POST["titre"])&&!empty($_POST["dPost"])&&!empty($_POST["text"])&&!empty($_POST["comm"])&&$checkUp==TRUE){
+    if(!empty($_POST["titre"])&&!empty($_POST["dPost"])&&!empty($_POST["text"])&&$checkUp==TRUE){
        $imgSize=filesize($_FILES['fichier']['tmp_name']);
         
         //on met dans un tab pour execute
-        $tab= array("titre"=>$_POST["titre"],"dPost"=>$_POST["dPost"],"content"=>$_POST["text"],"imgN"=>$nomImage,"imgS"=>$imgSize,"commentaire"=>$_POST["comm"]); 
+        $tab= array("titre"=>$_POST["titre"],"dPost"=>$_POST["dPost"],"content"=>$_POST["text"],"imgN"=>$nomImage,"imgS"=>$imgSize); 
        
         //on execute le bazar
         
@@ -147,11 +130,6 @@ foreach ($tab as $key => $value){
     echo ("$key : $value <br>"); 
 }
 
-
-
 echo("<br><hr><br>");
 
-var_dump($req);
-
-echo("<br><hr><br>");
 ?>
