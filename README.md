@@ -4,7 +4,7 @@ A project of backoffice for a school project.
 it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - Update 2.0.1]*
+*[Aliss - 26/03/2020 - Update 2.0.2]*
 
 creating the base object system. 
 
