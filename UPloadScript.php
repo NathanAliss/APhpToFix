@@ -122,7 +122,7 @@ if(!empty($_POST))
     $message = 'Veuillez remplir le formulaire svp !';
   }
    //check un peu bourin de si les autre champ son plein
-    if(!empty($_POST["titre"]&&$_POST["dPost"]&&$_POST["text"]&&$_POST["comm"])&&$checkUp==TRUE){
+    if(!empty($_POST["titre"])&&!empty($_POST["dPost"])&&!empty($_POST["text"])&&!empty($_POST["comm"])&&$checkUp==TRUE){
        $imgSize=filesize($_FILES['fichier']['tmp_name']);
         
         //on met dans un tab pour execute
