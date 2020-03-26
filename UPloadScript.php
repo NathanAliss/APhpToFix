@@ -8,9 +8,16 @@ $password = 'root';
 try {
     $bdd= new PDO($dsn, $user, $password);
     echo "<br><hr><br>accès bdd ok<br><hr><br>";
+   
+
 } catch (PDOException $e) {
     echo 'Connexion échouée : ' . $e->getMessage();
 }
+
+ /* a integré pour un retour mais pas trouver comment
+(https://www.php.net/manual/fr/pdo.setattribute.php)
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+*/
 
 //prepare de la requette
 
@@ -31,7 +38,7 @@ $message = '';
 $nomImage = '';
 $checkUp = FALSE;
 $imgSize='';
-$req=$bdd->prepare("INSERT INTO article('id', 'titre', 'dPost', 'content', 'img_name', 'img_size','commentaire')VALUES (NULL,:titre,:dPost,:content,:imgN,:imgS,:commentaire)");
+$req=$bdd->prepare("INSERT INTO article(`titre`, `dPost`, `content`, `img_name`, `img_size`,`commentaire`)VALUES (:titre,:dPost,:content,:imgN,:imgS,:commentaire)");
 $tab='';
 
 /************************************************************
