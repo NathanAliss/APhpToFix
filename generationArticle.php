@@ -16,7 +16,21 @@ class Article {
     }
     //methode
     public function generate(){
-        echo ("")
+        echo ('
+       <script type="\text/javascript\">
+       $(document).ready(fuction(){
+        $.(\"#flow\").text( 
+        <div class=\"actu-line\">
+            <img src=\"test/'+$this->image+'\">
+            <div class=\"content\">
+                <h2>'+$this->titre+'</h2>
+                <p>'+$this->dpost+'</p>
+                <p>'+$this->content+'</p>
+            </div>
+        </div>);
+});
+        </script>
+        ')
     }/*generateur d'article en HTML*/
     
     //gatter
