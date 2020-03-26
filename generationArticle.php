@@ -22,6 +22,18 @@ class Article {
     //gatter
     
     //setter
+    public function setTitre($newTitre){
+        $this->titre=$newTitre;  
+    };
+    public function setDate($newDate){
+        $this->dpost=$newDate;
+    };
+    public function setContent($newContent){
+        $this->content=$newContent;
+    };
+    public function setImage($newImage){
+        $this->image=$newImage;
+    };
     
     //destruct
     public function __destruct();

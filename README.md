@@ -1,9 +1,21 @@
 # APhpToFix
+
 A project of backoffice for a school project. 
 it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
-Aliss - 26/03/2020 - Update 2
+Aliss - 26/03/2020 - Update 2.0.1
+
+creating the base object system. 
+
+need to be add : 
+– article generation model 
+
+need to be Think
+– how integrate the value in the object
+
+-------------------------------------------------------
+Aliss - 26/03/2020 - Update 2.0
 
 Adding the generation systeme base and display system base
 
