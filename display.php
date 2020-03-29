@@ -79,36 +79,38 @@
         <h1 class="big-titre">Actualités</h1>
         
     <span id="flow">
-        
-    </span>
-
-<?php 
+        <?php 
 
 include "connexion.php";
 include "generationArticle.php";
     
 //variable
-$name,$dPost,$contant,$image,$memArticle;
-
-
     
 //code
     
-$sql="SELECT * FROM article ORDER BY id ASC";
+$sql="SELECT * FROM `article` ORDER BY `id` ASC";
         
 foreach ($bdd->query($sql)as $row){
-    $name=$row["titre"];
+    
+     $name=$row["titre"];
     $dPost=$row["dPost"];
-    $contant=$row["content"];
-    $image=$row["imgN"];
-$memArticle= new Article($name,$dPost,$contant,$image);
-$memArticle->generate();
-}    
+    $content=$row["content"];
+    $img=$row["imgN"];
+    
+    echo("<div class=\"actu-line\">
+            <img src=\"test/$img\">
+            <div class= \"content\">
+                <h2> $name </h2>
+                <p>$dPost</p>
+                <p>$content</p>
+            </div>
+        </div>");
+};
         
 
 
 ?>
-
+    </span>
  <footer>
         Tous droits réservés - <a href="credits.html">voir les crédits</a>
 </footer>

@@ -6,7 +6,7 @@
 </head>
 
 <body>
-
+<a href="display.php">page actualité</a>
     <!-- Debut du formulaire -->
     <form enctype="multipart/form-data" action="UPloadScript.php" method="post">
         <fieldset>
@@ -26,12 +26,53 @@
         </fieldset>
     </form> <!-- Fin du formulaire -->
     <fieldset>
+        <legend>paneau de commande article</legend>
+        <form action="dashborad.php" method="get">
+            <label>id article</label><br>
+            <input name="idCheck" type="number" value="0"><br>
+            <label>modifier ou surprimé</label><br>
+            <select name="modsup">
+                <option value="1">Modifié</option>
+                <option value="2">suprimé</option>
+            </select><br>
+            <label>modification du text</label><br>
+            <textarea name="Ncontent" rows="5" cols="33"></textarea><br>
+            <label> confirmation supression ?</label><br>
+            <select name="confirm">
+                <option value="false">non</option>
+                <option value="true">oui</option>
+            </select>
+        </form>
+        <?php
+        include "connexion.php";
+        $id=$_GET["idCheck"];
+        $action=$_GET["Modsup"];
+        
+        switch ($action){
+                case 1:
+                    $content=$_GET["Ncontent"];
+                    $req=$bdd->prepare("UPDATE article SET content=:content WHERE id=:id");
+                    $req->execute(array("content"=>$content,"id"=>$id));
+                break;
+                case 2:
+                if($_GET["confirm"]==true){
+                    $bdd->query("DELETE FROM `article`WHERE id =\".$id.\"");
+                    break;
+                }else{
+                    echo('<script type="\text/javascript\">alter("veuillez confirmé");<script>');
+                };
+        };
+        ?>
+    </fieldset>
+    
+    <fieldset>
         <legend>Liste des articles</legend>
         <?php
+        include "connexion.php";
     $sql="SELECT * FROM `article` ORDER BY `id` ASC";
     echo("<table>
     <tr>
-    <th>id</th><th>titre</th><th>date de poste</th><th>action<th>
+    <th>id</th><th>titre</th><th>date de poste</th>
 <tr>");  
         $test=$bdd->query($sql);
 foreach($test as $row){
@@ -39,15 +80,11 @@ foreach($test as $row){
     $name= $row["titre"];
     $dPost= $row["dPost"];
 echo("<tr>
-<td>$id</td><td>$name</td><td>$dPost</td><td><button>modifier l'article</button><br><button>supprimer l'article</button></td>
+<td>$id</td><td>$name</td><td>$dPost</td>
 </tr>");
 };
         
 echo("</table>");
-    
-//test
-echo ("<br><br><hr><br>$id,$name,$dPost<br><br><hr><br>");
-var_dump($row);
 
         ?>
     </fieldset>
