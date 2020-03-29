@@ -114,22 +114,26 @@ if(!empty($_POST))
         //on execute la requette
         
        $req->execute($tab);
-        echo ("req donnetest");
+        echo ("<fieldset>
+    <legend> Resultat</legend>
+    <p>
+        Article envoyer<br><br>
+        action disponible <br>
+        <a href='dashboard.php'>Créer un autre article / retourné sur la page de gestion</a> <a href='display.php'> Acceder a la pose des article</a>
+    </p>
+</fieldset>");
     }else{
-        echo ("les contenue texte ne sont pas remplie");
+        echo (
+            "<fieldset>
+    <legend> Resultat</legend>
+    <p>
+        un problème est apparu.<br><br>
+        action disponible <br>
+        <a href='dashboard.php'>Créer un autre article / retourné sur la page de gestion</a> <a href='display.php'> Acceder a la pose des article</a>
+    </p>
+</fieldset>");
     }
 }
 
-//controle | SA BOUGE A LA FIN
-
-echo ("<br><hr><br>target : ".TARGET."<br> taille max :".MAX_SIZE."<br> max-width : ".WIDTH_MAX."<br> max-hight : ".HEIGHT_MAX."<br> extention : $extension <br> message : $message <br> nom : $nomImage<br> check : $checkUp <br><hr><br>");
-
-
-//controle | SA BOUGE A LA FIN AUSSI
-foreach ($tab as $key => $value){
-    echo ("$key : $value <br>"); 
-}
-
-echo("<br><hr><br>");
 
 ?>

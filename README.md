@@ -4,6 +4,21 @@ A project of backoffice for a school project.
 it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
+*[Aliss - 29/03/2020 - Update 2.1.0]*
+
+creating the dispay and command
+
+bug : 
+–article didn't apear in the dashboard
+
+need to be add : 
+– integration in the flow
+–test it
+
+need to be Think : 
+–design the commande pannel for modify and delete article
+
+-------------------------------------------------------
 *[Aliss - 26/03/2020 - Update 2.0.2]*
 
 creating the base object system. 

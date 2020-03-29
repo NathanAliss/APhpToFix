@@ -88,25 +88,30 @@ include "connexion.php";
 include "generationArticle.php";
     
 //variable
-$nbArticle= $bdd->query("SELECT COUNT(id)FROM article");//On recupére le nombre d'article dans la BDD
-$memArticle;
+$name,$dPost,$contant,$image,$memArticle;
 
 
     
 //code
     
-for($i=0;$i<$nbArticle;$i++){
-    //on recupère les donnée d'un article que l'on met dans des variable 
-    
-    $memArticle= new Article(/*les valeur dans des variable*/);
-    $memArticle->generate();
-}
+$sql="SELECT * FROM article ORDER BY id ASC";
+        
+foreach ($bdd->query($sql)as $row){
+    $name=$row["titre"];
+    $dPost=$row["dPost"];
+    $contant=$row["content"];
+    $image=$row["imgN"];
+$memArticle= new Article($name,$dPost,$contant,$image);
+$memArticle->generate();
+}    
+        
+
 
 ?>
 
  <footer>
-            Tous droits réservés - <a href="credits.html">voir les crédits</a>
-        </footer>
+        Tous droits réservés - <a href="credits.html">voir les crédits</a>
+</footer>
 
     </div>
 </body>
