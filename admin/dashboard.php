@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <a href="display.php">page actualité</a>
+    <a href="../actualites.php">page actualité</a>
     <!-- Debut du formulaire -->
     <form enctype="multipart/form-data" action="UPloadScript.php" method="post">
         <fieldset>

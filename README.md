@@ -4,6 +4,11 @@ A project of backoffice for a school project.
 it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
+*[Aliss - 29/03/2020 - Update 2.2.1]*
+
+fixing issue with naming
+
+-------------------------------------------------------
 *[Aliss - 29/03/2020 - Update 2.2.0]*
 
 add login function. 
