@@ -1,0 +1,36 @@
+/* 
+    Created on : 25 oct. 2016,
+    Author     : joetzflo
+    modify on : 29 mar. 2020,
+    Author     : sanchna
+*/
+html,body{
+    margin:1vh 1vw;
+    padding:0;
+	
+}
+
+h1,h2,h3,p{
+    margin:0;
+    padding:0;  
+}
+
+.mastfoot{
+background-color:#9F81F7;
+padding:20px;
+}
+
+td{
+    border: black solid;
+    padding: 0.5em;
+}
+
+th{
+    border: black solid;
+    background: black;
+    color: white;
+}
+
+fieldset{
+    border: black;
+}

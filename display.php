@@ -77,46 +77,38 @@
     <div id="bg-black">
 
         <h1 class="big-titre">Actualités</h1>
-        
-    <span id="flow">
-        <?php 
+
+        <span id="flow">
+            <?php 
 
 include "connexion.php";
-include "generationArticle.php";
-    
-//variable
-    
-//code
-    
-$sql="SELECT * FROM `article` ORDER BY `id` ASC";
         
-foreach ($bdd->query($sql)as $row){
-    
-     $name=$row["titre"];
+$sql="SELECT * FROM `article` ORDER BY `id` ASC";
+$querr=$bdd->query($sql);
+        
+foreach ($querr as $row){
+    $name=$row["titre"];
     $dPost=$row["dPost"];
     $content=$row["content"];
     $img=$row["imgN"];
     
     echo("<div class=\"actu-line\">
             <img src=\"test/$img\">
-            <div class= \"content\">
-                <h2> $name </h2>
+            <div class=\"content\">
+                <h2>$name</h2>
                 <p>$dPost</p>
                 <p>$content</p>
             </div>
         </div>");
 };
         
-
-
 ?>
-    </span>
- <footer>
-        Tous droits réservés - <a href="credits.html">voir les crédits</a>
-</footer>
+        </span>
+        <footer>
+            Tous droits réservés - <a href="credits.html">voir les crédits</a>
+        </footer>
 
     </div>
 </body>
 
 </html>
-
