@@ -103,6 +103,7 @@ if(!empty($_POST))
   {
     // Sinon on affiche une erreur pour le champ vide
     $message = 'Veuillez remplir le formulaire svp !';
+    
   }
    //check si les autre champ sont remplie
     if(!empty($_POST["titre"])&&!empty($_POST["dPost"])&&!empty($_POST["text"])&&$checkUp==TRUE){

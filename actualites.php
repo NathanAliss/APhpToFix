@@ -81,7 +81,7 @@
         <span id="flow">
             <?php 
 
-include "connexion.php";
+include "admin/connexion.php";
         
 $sql="SELECT * FROM `article` ORDER BY `id` ASC";
 $querr=$bdd->query($sql);
@@ -93,7 +93,7 @@ foreach ($querr as $row){
     $img=$row["imgN"];
     
     echo("<div class=\"actu-line\">
-            <img src=\"test/$img\">
+            <img src=\"admin/test/$img\">
             <div class=\"content\">
                 <h2>$name</h2>
                 <p>$dPost</p>

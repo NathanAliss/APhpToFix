@@ -13,65 +13,87 @@
         <fieldset>
             <legend>Créer un article</legend>
             <p>
-                <label>titre de l'article</label>
-                <input type="text" name="titre"><br>
-                <label>Date</label>
-                <input type="date" name="dPost"><br>
-                <label> contenue</label><br>
-                <textarea name="text" rows="5" cols="33"></textarea><br>
-                <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">inseret une image :</label>
-                <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />
-                <input name="fichier" type="file" id="fichier_a_uploader" /><br><br><br>
+                <table class="UI">
+                    <tr>
+                        <td><label>titre de l'article</label></td>
+                        <td><label>Date</label></td>
+                        <td><label> contenue</label></td>
+                        <td><label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">inseret une image :</label></td>
+                    </tr>
+                    <td><input type="text" name="titre">
+                    <td><input type="date" name="dPost"></td>
+                    <td><textarea name="text" rows="5" cols="33"></textarea></td>
+                    <td><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /> <input name="fichier" type="file" id="fichier_a_uploader" /></td>
+                    </td>
+                </table>
+                <br><br><br>
                 <input type="submit" class="btn btn-info" name="submit" value="Uploader l'article" />
             </p>
         </fieldset>
     </form> <!-- Fin du formulaire -->
     <fieldset>
         <legend>paneau de commande article</legend>
-        <form action="dashborad.php" method="get">
-            <label>id article</label><br>
-            <input name="idCheck" type="number" value="0"><br>
-            <label>modifier ou surprimé</label><br>
-            <select name="modsup">
-                <option value="1">Modifié</option>
-                <option value="2">suprimé</option>
-            </select><br>
-            <label>modification du text</label><br>
-            <textarea name="Ncontent" rows="5" cols="33"></textarea><br>
-            <label> confirmation supression ?</label><br>
-            <select name="confirm">
-                <option value="false">non</option>
-                <option value="true">oui</option>
-            </select>
+        <form method="get" action="dashboard.php">
+            <table class="UI">
+                <tr>
+                    <td><label>id article</label></td>
+                    <td><label>modifier ou surprimé l'article</label></td>
+                    <td><label>modification du text</label></td>
+                    <td><label> confirmation supression ?</label></td>
+                </tr>
+                <tr>
+                    <td><input name="idCheck" type="number" value="0"></td>
+                    <td><select name="modsup">
+                            <option value="1">Modifié</option>
+                            <option value="2">suprimé</option>
+                        </select></td>
+                    <td><textarea name="Ncontent" rows="5" cols="33"></textarea></td>
+                    <td><select name="confirm">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select></td>
+                </tr>
+            </table><br>
+            <input type="submit" class="btn btn-info" name="submit" value="effectuer l'action" />
         </form>
+        
         <?php
         include "connexion.php";
+        
         $id=$_GET["idCheck"];
-        $action=$_GET["Modsup"];
+        $action= $_GET["modsup"];
+        $confirm=$_GET["confirm"];
         
         switch ($action){
                 case 1:
+                    
                     $content=$_GET["Ncontent"];
                     $req=$bdd->prepare("UPDATE article SET content=:content WHERE id=:id");
                     $req->execute(array("content"=>$content,"id"=>$id));
+                    
                 break;
                 case 2:
-                if($_GET["confirm"]==true){
-                    $bdd->query("DELETE FROM `article`WHERE id =\".$id.\"");
+                
+                if( $confirm==true){
+                    
+                    $bdd->query("DELETE FROM `article` WHERE `article`.`id`=".$id);
+                    
                     break;
-                }else{
-                    echo('<script type="\text/javascript\">alter("veuillez confirmé");<script>');
-                };
-        };
+                }else if($action==2&&$confirm==false){
+                   
+                    echo('<script type="text/javascript"> alert("veuillez confirmé");</script>');
+                    
+                }
+        }
         ?>
     </fieldset>
-
+<br><br>
     <fieldset>
         <legend>Liste des articles</legend>
         <?php
         include "connexion.php";
-    $sql="SELECT * FROM `article` ORDER BY `id` ASC";
-    echo("<table>
+    $sql="SELECT * FROM `article` ORDER BY `id` DESC";
+    echo("<table id=\"affichearticle\">
     <tr>
     <th>id</th><th>titre</th><th>date de poste</th>
 <tr>");  
@@ -89,12 +111,13 @@ echo("</table>");
         ?>
     </fieldset>
 </body>
- <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </html>

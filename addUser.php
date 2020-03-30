@@ -16,9 +16,11 @@
             <input type="text" id="username" name="username">
             <label for="password">Password :</label>
             <input type="password" id="password" name="password">
-            <button type="submit" class="btn btn-info">Valider</button>
+            <button name="valide" type="submit" class="btn btn-info" value="1">Valider</button>
         </form>
+        <br><p> retourné a la page de conexion : <a href="login.php">cliquez ici</a></p>
     </fieldset>
+    
     <?php
     include "admin/connexion.php";
     
@@ -26,6 +28,11 @@
     $mem=crypt($_POST["password"],aliss);
     $tab=array("user"=>$_POST["username"],"mdp"=>$mem);
     $req->execute($tab);
+    $check=$_POST["valide"];
+    if($check==true){
+        echo('<script type="text/javascript"> alert("Utilisateur ajouter");</script>');
+    }
+    
     ?>
     </div>
     <hr/>

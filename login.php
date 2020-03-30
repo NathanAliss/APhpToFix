@@ -17,7 +17,7 @@
             <label for="password">Password :</label>
             <input type="password" id="password" name="password">
             <button type="submit" class="btn btn-info">Valider</button> <br>
-            <label> ajouter des login</label>
+            <label> créer son compte </label>
             <a href="addUser.php">cliquez ici</a>
         </form>
     </fieldset>
@@ -32,7 +32,8 @@
         $mem=crypt($_POST["password"],aliss);
         if($user==$_POST["username"] and $pass==$mem){
             echo('<form action="admin/dashboard.php">
-            <button type="submit" lass="btn btn-info">acceder au dashboard</button>
+            <br>
+            <button type="submit" class="btn btn-info">acceder au dashboard</button>
 </form>');
             
         }else{

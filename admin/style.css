@@ -20,7 +20,7 @@ background-color:#9F81F7;
 padding:20px;
 }
 
-td{
+#affichearticle,#affichearticle td{
     border: black solid;
     padding: 0.5em;
 }
@@ -29,6 +29,18 @@ th{
     border: black solid;
     background: black;
     color: white;
+}
+
+.UI{
+    border: black solid;
+    text-align: center;
+    padding: 0.5em;
+}
+.UI td{
+    border : none;
+    text-align: center;
+    padding: 0.5em;
+}
 }
 
 fieldset{
