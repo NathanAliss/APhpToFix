@@ -26,7 +26,7 @@
     
     $req=$bdd->prepare("INSERT INTO user (`user`,`mdp`)VALUES(:user,:mdp)");
     $mem=crypt($_POST["password"],aliss);
-    $tab=array("user"=>$_POST["username"],"mdp"=>$mem);
+    $tab=array("user"=>htmlspecialchars($_POST["username"],ENT_DISALLOWED),"mdp"=>$mem);
     $req->execute($tab);
     $check=$_POST["valide"];
     if($check==true){

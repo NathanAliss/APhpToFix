@@ -4,6 +4,13 @@ A project of backoffice for a school project.
 it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
+*[Aliss - 30/03/2020 - Update 3.0.0]*
+
+all is done and working. Download it if you want to test it.
+
+all make by hand.
+
+-------------------------------------------------------
 *[Aliss - 30/03/2020 - Update 2.4.0]*
 
 polichig and fixing the last bugs. ready for the world

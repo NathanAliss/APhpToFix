@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<?php
+    <?php
             
         include "connexion.php";
     
@@ -16,12 +16,11 @@
     $querr=$bdd->query($sql);
     foreach ($querr as $row){
         $pass=$row["mdp"];
-        $pass=crypt($pass,aliss);
+        $pass=crypt($pass,kapa);
         $nav=$_POST["nav"];
-        $nav=crypt($nav,aliss);
         if ($nav==$pass){
     ?>
-      
+
     <h1>Dashboard</h1>
     <h2>Gestion de vos articles</h2>
 
@@ -53,7 +52,9 @@
                 <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /> <input name="fichier" type="file" id="fichier_a_uploader" />
 
             </div>
-
+            <?php
+            echo('<input type="text" name="nav" value="'.$nav.'" style="display:none">')
+            ?>
             <input type="submit" class="btn btn-info" name="submit" value="Ajouter l'article" />
 
 
@@ -64,7 +65,7 @@
 
         <legend>Panneau de commande article</legend>
 
-        <form method="get" action="dashboard.php">
+        <form method="post" action="dashboard.php">
 
 
 
@@ -91,6 +92,8 @@
                         <option value="0">non</option>
                         <option value="1">oui</option>
                     </select>
+                    <?php echo('<input type="text" name="nav" value="'.$nav.'" style="display:none">');
+            ?>
                 </div>
             </table>
 
@@ -100,14 +103,14 @@
         <?php
         include "connexion.php";
         
-        $id=$_GET["idCheck"];
-        $action= $_GET["modsup"];
-        $confirm=$_GET["confirm"];
+        $id=$_POST["idCheck"];
+        $action= $_POST["modsup"];
+        $confirm=$_POST["confirm"];
         
         switch ($action){
                 case 1:
                     
-                    $content=$_GET["Ncontent"];
+                    $content=$_POST["Ncontent"];
                     $req=$bdd->prepare("UPDATE article SET content=:content WHERE id=:id");
                     $req->execute(array("content"=>$content,"id"=>$id));
                     
@@ -156,8 +159,8 @@ echo("</table>");
     <?php
             
         }else{
-            echo('<h2 class="cache">merci de vous connecter</h2>
-            <p class="cache">pour vous autantifier <a href="../login.php" class="cache">cliquez ici</a></p><br>');
+            echo('<p class="cache">Merci de vous connecter</p>
+            <p class="cache">Pour vous authentifier <a href="../login.php" class="cache">cliquez ici</a></p><br>');
         }}
     
         ?>

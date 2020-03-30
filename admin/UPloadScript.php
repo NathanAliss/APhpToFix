@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Resultat d'envoie</title>
+    <title>Resultat d'envoi</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
@@ -33,6 +33,7 @@ $checkUp = FALSE;
 $imgSize='';
 $req=$bdd->prepare("INSERT INTO article(`titre`, `dPost`, `content`, `imgN`, `imgS`)VALUES (:titre,:dPost,:content,:imgN,:imgS)");
 $tab='';
+$mem=$_POST["nav"];
 
 /************************************************************
  * Creation du repertoire cible si inexistant
@@ -120,29 +121,45 @@ if(!empty($_POST))
        $imgSize=filesize($_FILES['fichier']['tmp_name']);
         
         //on met dans un tab pour execute
-        $tab= array("titre"=>$_POST["titre"],"dPost"=>$_POST["dPost"],"content"=>$_POST["text"],"imgN"=>$nomImage,"imgS"=>$imgSize); 
+        $tab= array("titre"=>htmlspecialchars( $_POST["titre"],ENT_DISALLOWED),"dPost"=>$_POST["dPost"],"content"=>htmlspecialchars( $_POST["text"],ENT_DISALLOWED),"imgN"=>$nomImage,"imgS"=>$imgSize); 
        
         //on execute la requette
         
        $req->execute($tab);
-        echo ("<fieldset>
-    <legend> Resultat</legend>
+        echo ('<fieldset>
+    <legend>Resultat</legend>
     <p>
-        Article envoyer<br><br>
-        action disponible <br>
-        <a href='dashboard.php'>Créer un autre article / retourné sur la page de gestion</a> <a href='../actualites.php'> Acceder a la page des article</a>
+        Article bien envoyé <br><br>
+        Actions disponibles : <br>
+        <form method="post" action="dashboard.php">
+        
+        <input type="text" name="nav" value="'.$mem.'" style="display:none"></input>
+        
+        <input type="submit" class="btn" value="Dashboard"> </input>
+        
+        </form>
+        
+        <form action="../actualites.php">
+        <input type="submit" class="btn" value="Page actualités"></input></form>
     </p>
-</fieldset>");
+</fieldset>');
     }else{
-        echo (
-            "<fieldset>
+        echo ('<fieldset>
     <legend> Resultat</legend>
     <p>
-        un problème est apparu.<br><br>
-        action disponible <br>
-        <a href='dashboard.php'>Créer un autre article / retourné sur la page de gestion</a> <a href='display.php'> Acceder a la pose des article</a>
+        Un problème est apparu.<br><br>
+        Actions disponibles : <br>
+        <form method="post" action="dashboard.php">
+        
+        <input type="text" name="nav" value="'.$mem.'" style="display:none"></input>
+        
+        <input type="submit" class="btn" value="Dashboard"> </input>
+        </form>
+        
+        <form action="../actualites.php">
+        <input type="submit" class="btn" value="Page actualités"></input></form>
     </p>
-</fieldset>");
+</fieldset>');
     }
 }
 

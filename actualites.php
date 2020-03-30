@@ -83,7 +83,7 @@
 
 include "admin/connexion.php";
         
-$sql="SELECT * FROM `article` ORDER BY `id` ASC";
+$sql="SELECT * FROM `article` ORDER BY `id` DESC";
 $querr=$bdd->query($sql);
         
 foreach ($querr as $row){
@@ -95,7 +95,7 @@ foreach ($querr as $row){
     echo("<div class=\"actu-line\">
             <img src=\"admin/test/$img\">
             <div class=\"content\">
-                <h2>$name</h2>
+                <h2 class=\"orange-title\">$name</h2>
                 <p>$dPost</p>
                 <p>$content</p>
             </div>
@@ -105,9 +105,13 @@ foreach ($querr as $row){
 ?>
         </span>
         <footer>
-            Tous droits réservés - <a href="credits.html">voir les crédits</a>
-        </footer>
+            <p>© Copyright 2019 <a href="credits.html">voir les crédits</a></p>
+            <p>
+                Tous droits réservés Projet Wooderhille IUT Rouen</p>
 
+            <a href="login.php" class="admin"><img src="content/icons/lock.png" title="Accès à la page d'administration">Accès à la page d'administration</a>
+
+        </footer>
     </div>
 </body>
 

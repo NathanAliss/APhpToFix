@@ -14,7 +14,7 @@
         <form method="post" action="login.php">
             <input placeholder="Nom d'utisateur" type="text" id="username" name="username">
             <input placeholder="Mot de passe" type="password" id="password" name="password">
-            <input type="submit" class="btn" value="Ce connecter"></input> <br>
+            <input type="submit" class="btn" value="Se connecter"></input> <br>
             
         </form>
     </fieldset>
@@ -26,12 +26,14 @@
     foreach ($querr as $row){
         $user=$row["user"];
         $pass=$row["mdp"];
-        $mem=crypt($_POST["password"],aliss);
+        $pass=crypt($pass,kapa);
+        $mem=crypt($_POST["password"],kapa);
+        $mem=crypt($mem,kapa);
         if($user==$_POST["username"] and $pass==$mem){
             echo('<form method="post" action="admin/dashboard.php">
             <br>
             <input type="text" name="nav" value="'.$mem.'" style="display:none">
-            <button type="submit" class="btn btn-info">acceder au dashboard</button>
+            <input type="submit" class="btn" value="Acceder au dashboard"></input>
 </form>');
         }else{
             $check=$check+1;

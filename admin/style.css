@@ -82,8 +82,8 @@ th {
 
 td{
     text-align: center;
-    border-left: solid, white;
-    border-right: solid, white;
+    padding: 10px 5px;
+    border: solid white;
 }
 
 legend {
@@ -108,8 +108,7 @@ label{
     color: white;
 }
 
-
 .cache{
-    display: none;
-    }
- 
+	display: none;
+}
+
