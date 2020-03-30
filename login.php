@@ -5,20 +5,17 @@
     <title>Authentification</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin/style.css">
 </head>
 
 <body>
     <fieldset>
         <legend>Connexion</legend>
         <form method="post" action="login.php">
-            <label for="username">Username :</label>
-            <input type="text" id="username" name="username">
-            <label for="password">Password :</label>
-            <input type="password" id="password" name="password">
-            <button type="submit" class="btn btn-info">Valider</button> <br>
-            <label> créer son compte </label>
-            <a href="addUser.php">cliquez ici</a>
+            <input placeholder="Nom d'utisateur" type="text" id="username" name="username">
+            <input placeholder="Mot de passe" type="password" id="password" name="password">
+            <input type="submit" class="btn" value="Ce connecter"></input> <br>
+            
         </form>
     </fieldset>
     <?php
@@ -31,22 +28,18 @@
         $pass=$row["mdp"];
         $mem=crypt($_POST["password"],aliss);
         if($user==$_POST["username"] and $pass==$mem){
-            echo('<form action="admin/dashboard.php">
+            echo('<form method="post" action="admin/dashboard.php">
             <br>
+            <input type="text" name="nav" value="'.$mem.'" style="display:none">
             <button type="submit" class="btn btn-info">acceder au dashboard</button>
 </form>');
-            
         }else{
             $check=$check+1;
         }
     }
     ?>
     </div>
-    <hr />
 </body>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

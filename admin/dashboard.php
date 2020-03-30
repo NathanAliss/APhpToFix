@@ -4,59 +4,99 @@
 <head>
     <title>Dashboard administrateur</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
-    <a href="../actualites.php">page actualité</a>
+<?php
+            
+        include "connexion.php";
+    
+    $sql="SELECT * FROM `user`";
+    $querr=$bdd->query($sql);
+    foreach ($querr as $row){
+        $pass=$row["mdp"];
+        $pass=crypt($pass,aliss);
+        $nav=$_POST["nav"];
+        $nav=crypt($nav,aliss);
+        if ($nav==$pass){
+    ?>
+      
+    <h1>Dashboard</h1>
+    <h2>Gestion de vos articles</h2>
+
     <!-- Debut du formulaire -->
-    <form enctype="multipart/form-data" action="UPloadScript.php" method="post">
-        <fieldset>
-            <legend>Créer un article</legend>
-            <p>
-                <table class="UI">
-                    <tr>
-                        <td><label>titre de l'article</label></td>
-                        <td><label>Date</label></td>
-                        <td><label> contenue</label></td>
-                        <td><label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">inseret une image :</label></td>
-                    </tr>
-                    <td><input type="text" name="titre">
-                    <td><input type="date" name="dPost"></td>
-                    <td><textarea name="text" rows="5" cols="33"></textarea></td>
-                    <td><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /> <input name="fichier" type="file" id="fichier_a_uploader" /></td>
-                    </td>
-                </table>
-                <br><br><br>
-                <input type="submit" class="btn btn-info" name="submit" value="Uploader l'article" />
-            </p>
-        </fieldset>
-    </form> <!-- Fin du formulaire -->
+
     <fieldset>
-        <legend>paneau de commande article</legend>
-        <form method="get" action="dashboard.php">
-            <table class="UI">
-                <tr>
-                    <td><label>id article</label></td>
-                    <td><label>modifier ou surprimé l'article</label></td>
-                    <td><label>modification du text</label></td>
-                    <td><label> confirmation supression ?</label></td>
-                </tr>
-                <tr>
-                    <td><input name="idCheck" type="number" value="0"></td>
-                    <td><select name="modsup">
-                            <option value="1">Modifié</option>
-                            <option value="2">suprimé</option>
-                        </select></td>
-                    <td><textarea name="Ncontent" rows="5" cols="33"></textarea></td>
-                    <td><select name="confirm">
-                            <option value="0">non</option>
-                            <option value="1">oui</option>
-                        </select></td>
-                </tr>
-            </table><br>
-            <input type="submit" class="btn btn-info" name="submit" value="effectuer l'action" />
+
+        <legend>Créer un article</legend>
+
+        <form enctype="multipart/form-data" action="UPloadScript.php" method="post">
+
+
+
+
+            <div>
+
+                <input type="text" name="titre" placeholder="Titre de l'article">
+            </div>
+            <div>
+
+                <input type="date" name="dPost">
+            </div>
+            <div>
+
+                <textarea name="text" rows="5" cols="33" placeholder="Inserer votre contenu d'article"></textarea>
+            </div>
+            <div>
+                <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Seletionner votre image</label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /> <input name="fichier" type="file" id="fichier_a_uploader" />
+
+            </div>
+
+            <input type="submit" class="btn btn-info" name="submit" value="Ajouter l'article" />
+
+
         </form>
-        
+    </fieldset>
+
+    <fieldset>
+
+        <legend>Panneau de commande article</legend>
+
+        <form method="get" action="dashboard.php">
+
+
+
+            <table class="UI">
+
+                <div>
+                    <label>Id de l'article</label>
+                    <input name="idCheck" type="number" value="0">
+                </div>
+                <div>
+                    <label>Action</label>
+                    <select name="modsup">
+                        <option value="1">Modifier</option>
+                        <option value="2">supprimer</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Modification du texte</label>
+                    <textarea name="Ncontent" rows="5" cols="33"></textarea>
+                </div>
+                <div>
+                    <label>Confirmation supression ?</label>
+                    <select name="confirm">
+                        <option value="0">non</option>
+                        <option value="1">oui</option>
+                    </select>
+                </div>
+            </table>
+
+            <input type="submit" class="btn btn-info" name="submit" value="Effectuer l'action" />
+        </form>
+
         <?php
         include "connexion.php";
         
@@ -87,7 +127,6 @@
         }
         ?>
     </fieldset>
-<br><br>
     <fieldset>
         <legend>Liste des articles</legend>
         <?php
@@ -95,7 +134,7 @@
     $sql="SELECT * FROM `article` ORDER BY `id` DESC";
     echo("<table id=\"affichearticle\">
     <tr>
-    <th>id</th><th>titre</th><th>date de poste</th>
+    <th>id</th><th>titre</th><th>date du post</th>
 <tr>");  
         $test=$bdd->query($sql);
 foreach($test as $row){
@@ -110,9 +149,20 @@ echo("<tr>
 echo("</table>");
         ?>
     </fieldset>
+    <div class="retour-page">
+        <p>Acceder à la page actualité</p>
+        <a href="../actualites.php">page actualité</a>
+    </div>
+    <?php
+            
+        }else{
+            echo('<h2 class="cache">merci de vous connecter</h2>
+            <p class="cache">pour vous autantifier <a href="../login.php" class="cache">cliquez ici</a></p><br>');
+        }}
+    
+        ?>
 </body>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

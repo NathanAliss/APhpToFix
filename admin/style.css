@@ -4,45 +4,112 @@
     modify on : 29 mar. 2020,
     Author     : sanchna
 */
-html,body{
-    margin:1vh 1vw;
-    padding:0;
-	
+html,
+body {
+    margin: 1vh 1vw;
+    padding: 0;
+    color: white;
+
+    font-family: helvetica, arial;
+    
+    background-color: #1d1d1b;
 }
 
-h1,h2,h3,p{
-    margin:0;
-    padding:0;  
+
+
+.mastfoot {
+    background-color: #9F81F7;
+    padding: 20px;
 }
 
-.mastfoot{
-background-color:#9F81F7;
-padding:20px;
+fieldset {
+    border: none;
+    background-color: #232321;
+    box-shadow: 9px 9px 18px -4px rgba(0, 0, 0, 0.75);
+      margin-bottom: 40px;
+    margin: 50px;
+    padding: 30px;
+    margin-top: 100px;
 }
 
-#affichearticle,#affichearticle td{
-    border: black solid;
-    padding: 0.5em;
+h1,h2{
+    text-align: center;
 }
 
-th{
-    border: black solid;
-    background: black;
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#affichearticle,
+#affichearticle td {
+    margin: 0 auto;
+}
+
+input,textarea, select {
+    box-sizing: border-box;
+    padding: 15px;
+    width: 200px;
+    margin-bottom: 20px;
+    background: #1d1d1b;
+    border: none;
+    outline: none;
+
     color: white;
 }
 
-.UI{
-    border: black solid;
-    text-align: center;
-    padding: 0.5em;
-}
-.UI td{
-    border : none;
-    text-align: center;
-    padding: 0.5em;
-}
+textarea{
+    width: 100%;
 }
 
-fieldset{
-    border: black;
+.btn{
+    transition: .4s ease;
+    cursor: pointer;
+    
+    color: black;
+    background: white;
+    
 }
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+th {   
+
+    padding: 0 20px;
+}
+
+td{
+    text-align: center;
+    border-left: solid, white;
+    border-right: solid, white;
+}
+
+legend {
+    font-size: 20px;
+    background-color: #232321;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+label{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.retour-page{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.retour-page a{
+    color: white;
+}
+
+
+.cache{
+    display: none;
+    }
+ 

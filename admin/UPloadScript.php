@@ -1,4 +1,14 @@
-<?php
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+    <title>Resultat d'envoie</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+    <?php
 
 include "connexion.php";
 
@@ -120,7 +130,7 @@ if(!empty($_POST))
     <p>
         Article envoyer<br><br>
         action disponible <br>
-        <a href='dashboard.php'>Créer un autre article / retourné sur la page de gestion</a> <a href='display.php'> Acceder a la pose des article</a>
+        <a href='dashboard.php'>Créer un autre article / retourné sur la page de gestion</a> <a href='../actualites.php'> Acceder a la page des article</a>
     </p>
 </fieldset>");
     }else{
@@ -138,3 +148,6 @@ if(!empty($_POST))
 
 
 ?>
+</body>
+
+</html>
