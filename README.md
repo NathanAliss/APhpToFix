@@ -4,42 +4,42 @@ A project of backoffice for a school project.
 it's developped in Php, MySQL and HTML/CSS
 
 -------------------------------------------------------
-*[Aliss - 30/03/2020 - Update 3.0.0]*
+*[Elyrr - 30/03/2020 - Update 3.0.0]*
 
 all is done and working. Download it if you want to test it.
 
 all make by hand.
 
 -------------------------------------------------------
-*[Aliss - 30/03/2020 - Update 2.4.0]*
+*[Elyrr - 30/03/2020 - Update 2.4.0]*
 
 polichig and fixing the last bugs. ready for the world
 
 adding some security bu the ways
 
 -------------------------------------------------------
-*[Aliss - 30/03/2020 - Update 2.3.0]*
+*[Elyrr - 30/03/2020 - Update 2.3.0]*
 
 rework of the User interface, fixing bug with login
 
 -------------------------------------------------------
-*[Aliss - 29/03/2020 - Update 2.2.1]*
+*[Elyrr - 29/03/2020 - Update 2.2.1]*
 
 fixing issue with naming
 
 -------------------------------------------------------
-*[Aliss - 29/03/2020 - Update 2.2.0]*
+*[Elyrr - 29/03/2020 - Update 2.2.0]*
 
 add login function. 
 All work simless
 
 -------------------------------------------------------
-*[Aliss - 29/03/2020 - Update 2.1.1]*
+*[Elyrr - 29/03/2020 - Update 2.1.1]*
 
 minnor fix
 
 -------------------------------------------------------
-*[Aliss - 29/03/2020 - Update 2.1.0]*
+*[Elyrr - 29/03/2020 - Update 2.1.0]*
 
 creating the dispay and command
 
@@ -54,7 +54,7 @@ need to be Think :
 –design the commande pannel for modify and delete article
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - Update 2.0.2]*
+*[Elyrr - 26/03/2020 - Update 2.0.2]*
 
 creating the base object system. 
 
@@ -66,7 +66,7 @@ need to be Think
 – how integrate the value in the object
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - Update 2.0.1]*
+*[Elyrr - 26/03/2020 - Update 2.0.1]*
 
 creating the base object system. 
 
@@ -77,12 +77,12 @@ need to be Think
 – how integrate the value in the object
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - Update 2.0]*
+*[Elyrr - 26/03/2020 - Update 2.0]*
 
 Adding the generation systeme base and display system base
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - fix 3]*
+*[Elyrr - 26/03/2020 - fix 3]*
 
 applaying the flowing of the fix. 
 
@@ -93,7 +93,7 @@ recreating the table and fixing the tag to match the information.
 thank to Lartak from Open Classroom 
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - fix 2]*
+*[Elyrr - 26/03/2020 - fix 2]*
 
 applaying the flowing of the fix. 
 
@@ -102,7 +102,7 @@ no change on the problem but may help to fix.
 line 125 "chain check" : correct the if !empty chain who wasn't working 
 
 -------------------------------------------------------
-*[Aliss - 26/03/2020 - fix 1]*
+*[Elyrr - 26/03/2020 - fix 1]*
 
 applaying fix suggested from the forum "Open Classroom" and "developpez.com"
 
